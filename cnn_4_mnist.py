@@ -2,7 +2,6 @@
 # pytorch cnn for multiclass classification
 from numpy import vstack
 from numpy import argmax
-from pandas import read_csv
 from sklearn.metrics import accuracy_score
 from torchvision.datasets import MNIST
 from torchvision.transforms import Compose
