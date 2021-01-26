@@ -10,3 +10,4 @@ the repo contains the following parts:
 4. binary classification
 5. multi classification
 6. CNN model for MNIST
+7. digital captcha recognization
