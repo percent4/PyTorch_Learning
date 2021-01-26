@@ -51,19 +51,26 @@ class CNN(Module):
         # input to first hidden layer
         X = self.hidden1(X)
         X = self.act1(X)
+        print("conv2d 1: ", X.shape)
         X = self.pool1(X)
+        print("pool2d 1: ", X.shape)
         # second hidden layer
         X = self.hidden2(X)
         X = self.act2(X)
+        print("conv2d 2: ", X.shape)
         X = self.pool2(X)
+        print("pool2d 2: ", X.shape)
         # flatten
         X = X.view(-1, 4*4*50)
+        print("reshape: ", X.shape)
         # third hidden layer
         X = self.hidden3(X)
         X = self.act3(X)
+        print("linear 1: ", X.shape)
         # output layer
         X = self.hidden4(X)
         X = self.act4(X)
+        print("linear 2: ", X.shape)
         return X
 
 
