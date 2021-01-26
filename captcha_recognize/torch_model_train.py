@@ -180,7 +180,7 @@ def prepare_data():
     # calculate split
     train, test = dataset.get_splits()
     # prepare data loaders
-    train_data = DataLoader(train, batch_size=8, shuffle=True)
+    train_data = DataLoader(train, batch_size=16, shuffle=True)
     test_data = DataLoader(test, batch_size=1024, shuffle=False)
     return train_data, test_data
 
@@ -272,7 +272,7 @@ if __name__ == '__main__':
     # have a look at train data
     print(train_dl.dataset[0])
     # create CNN model
-    model = CNNModel()
+    model = CNNModel().cuda()
     print(model)
     # train the model
     train_model(train_dl, model)

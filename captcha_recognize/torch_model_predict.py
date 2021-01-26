@@ -17,7 +17,7 @@ model.load_state_dict(state_dict)
 # print(model)
 
 # predict on a new image
-image_pixel = cv2.imread("new_images/code4.png", 1)/255
+image_pixel = cv2.imread("new_images/code12.png", 1)/255
 test_X = Tensor([torch.from_numpy(image_pixel).permute(2, 0, 1).numpy()])
 predicts = model(test_X)
 # retrieve numpy array
