@@ -12,3 +12,7 @@ the repo contains the following parts:
 6. CNN model for MNIST
 7. digital captcha recognization
 8. variable length math operation captcha recognization
+9. Chinese Named Entity Recognize
+10. HuggingFace Transformers NLP tasks learning
+
+- language model

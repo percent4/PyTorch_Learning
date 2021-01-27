@@ -166,7 +166,7 @@ class CNNModel(Module):
         # print("Pool 4: ", X.shape)
         # flatten
         X = X.view(-1, 256*1*6)
-        T = X.view(-1, 256*1*6)
+        T = X.view(-1, 256 * 1 * 6)
         # output layer
         X1 = self.hidden9(X)
         X1 = self.hidden14(X1)
@@ -211,12 +211,13 @@ def train_model(train_dl, model):
     for epoch in range(100):
         # enumerate mini batches
         for i, (inputs, target_y1, target_y2, target_y3, target_y4, target_y5) in enumerate(train_dl):
+            inputs = inputs.cuda()
             # inputs = inputs.cuda()
-            target_y1 = target_y1.long()
-            target_y2 = target_y2.long()
-            target_y3 = target_y3.long()
-            target_y4 = target_y4.long()
-            target_y5 = target_y5.long()
+            target_y1 = target_y1.long().cuda()
+            target_y2 = target_y2.long().cuda()
+            target_y3 = target_y3.long().cuda()
+            target_y4 = target_y4.long().cuda()
+            target_y5 = target_y5.long().cuda()
             # clear the gradients
             optimizer.zero_grad()
             # compute the model output
@@ -244,14 +245,15 @@ def evaluate_model(test_dl, model):
     pred4_list, true4_list = [], []
     pred5_list, true5_list = [], []
     for i, (inputs, target_y1, target_y2, target_y3, target_y4, target_y5) in enumerate(test_dl):
+        inputs = inputs.cuda()
         # evaluate the model on the test set
         pred1, pred2, pred3, pred4, pred5 = model(inputs)
         # retrieve numpy array
-        pred1 = pred1.detach().numpy()
-        pred2 = pred2.detach().numpy()
-        pred3 = pred3.detach().numpy()
-        pred4 = pred4.detach().numpy()
-        pred5 = pred5.detach().numpy()
+        pred1 = pred1.detach().cpu().numpy()
+        pred2 = pred2.detach().cpu().numpy()
+        pred3 = pred3.detach().cpu().numpy()
+        pred4 = pred4.detach().cpu().numpy()
+        pred5 = pred5.detach().cpu().numpy()
         true1 = target_y1.numpy().reshape((len(target_y1), 1))
         true2 = target_y2.numpy().reshape((len(target_y2), 1))
         true3 = target_y3.numpy().reshape((len(target_y3), 1))
@@ -297,7 +299,7 @@ if __name__ == '__main__':
     # have a look at train data
     print(train_dl.dataset[0])
     # create CNN model
-    model = CNNModel()
+    model = CNNModel().cuda()
     print(model)
     # train the model
     train_model(train_dl, model)

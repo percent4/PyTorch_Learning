@@ -31,4 +31,4 @@ for i, predict in enumerate(predicts):
     else:
         result.append(SIGNS.__getitem__(np.argmax(predict, axis=1)[0]))
 
-print("predict: %s" % result)
+print("predict: %s" % "".join(result))
