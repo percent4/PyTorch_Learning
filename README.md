@@ -11,3 +11,4 @@ the repo contains the following parts:
 5. multi classification
 6. CNN model for MNIST
 7. digital captcha recognization
+8. variable length math operation captcha recognization
