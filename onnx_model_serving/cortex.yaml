@@ -1,0 +1,10 @@
+# this is an example for cortex release 0.18 and may not deploy correctly on other releases of cortex
+
+- name: iris-classifier
+  predictor:
+    type: python
+    path: predictor.py
+    config:
+      model: iris.pth
+  monitoring:
+    model_type: classification

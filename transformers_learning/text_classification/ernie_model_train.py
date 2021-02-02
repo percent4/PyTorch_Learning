@@ -136,11 +136,11 @@ if __name__ == '__main__':
     model.to(device)
 
     # 加载数据集
-    sentiment_train_set = ClsDataset(train_file)
-    sentiment_train_loader = DataLoader(sentiment_train_set, batch_size=batch_size, shuffle=True)
+    train_set = ClsDataset(train_file)
+    train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True)
 
-    sentiment_valid_set = ClsDataset(test_file, is_training=False)
-    sentiment_valid_loader = DataLoader(sentiment_valid_set, batch_size=batch_size, shuffle=False)
+    valid_set = ClsDataset(test_file, is_training=False)
+    valid_loader = DataLoader(valid_set, batch_size=batch_size, shuffle=False)
 
     tokenizer = AutoTokenizer.from_pretrained("../ernie-1.0")
 
@@ -157,9 +157,9 @@ if __name__ == '__main__':
 
     print("start training...")
     for i in range(epochs):
-        train_loss, train_acc = train(model, sentiment_train_loader, optimizer, criterion, device)
+        train_loss, train_acc = train(model, train_loader, optimizer, criterion, device)
         print("train loss: ", train_loss, "\t", "train acc:", train_acc)
-        valid_loss, valid_acc = evaluate(model, sentiment_valid_loader, criterion, device)
+        valid_loss, valid_acc = evaluate(model, valid_loader, criterion, device)
         print("valid loss: ", valid_loss, "\t", "valid acc:", valid_acc)
         torch.save(model.state_dict(), '{}_ernie_cls.pth'.format(dataset))
     print("end training...")
