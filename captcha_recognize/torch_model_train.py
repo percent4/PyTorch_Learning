@@ -281,3 +281,26 @@ if __name__ == '__main__':
     # evaluate the model
     acc1, acc2, acc3, acc4 = evaluate_model(test_dl, model)
     print('Accuracy 1: %.4f, Accuracy 2: %.4f, Accuracy 3: %.4f, Accuracy 4: %.4f' % (acc1, acc2, acc3, acc4))
+
+    # export model to onnx format
+    # Input to the model
+    batch_size = 1
+    x = torch.randn(batch_size, 3, IMAGE_HEIGHT, IMAGE_WIDTH, requires_grad=True)
+    torch_out = model(x)
+
+    # Export the model
+    torch.onnx.export(model,  # model being run
+                      x,  # model input (or a tuple for multiple inputs)
+                      "captcha_recognition.onnx",  # where to save the model (can be a file or file-like object)
+                      export_params=True,  # store the trained parameter weights inside the model file
+                      opset_version=10,  # the ONNX version to export the model to
+                      do_constant_folding=True,  # whether to execute constant folding for optimization
+                      input_names=['input'],  # the model's input names
+                      output_names=['output1', 'output2', 'output3', 'output4'],  # the model's output names
+                      dynamic_axes={'input': {0: 'batch_size'},  # variable lenght axes
+                                    'output1': {0: 'batch_size'},
+                                    'output2': {1: 'batch_size'},
+                                    'output3': {2: 'batch_size'},
+                                    'output4': {3: 'batch_size'}
+                                    }
+                      )

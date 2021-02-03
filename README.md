@@ -10,8 +10,8 @@ the repo contains the following parts:
 4. binary classification
 5. multi classification
 6. CNN model for MNIST
-7. digital captcha recognization
-8. variable length math operation captcha recognization
+7. digital captcha recognition
+8. variable length math operation captcha recognition
 9. Chinese Named Entity Recognize
 10. HuggingFace Transformers NLP tasks learning
 
@@ -20,7 +20,11 @@ the repo contains the following parts:
 - English named entity recognition
 - Chinese named entity recognition
 
-11. onnx model serving
+11. onnx model serving: 
+
+- official SSD model
+- IRIS dataset MLP multiclass classification Model
+- captcha recognition CNN Model
 
 
 ### references:
