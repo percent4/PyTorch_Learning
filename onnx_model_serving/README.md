@@ -7,7 +7,13 @@ the repo shows how to serve models using ONNX Runtime Server.
 
 ```
 
+### ONNX Model Deployment
 
+use Docker to deploy onnx model which PyTorch can export, bash command as follows:
+
+```
+docker run -v {localModelAbsoluteFolder}:{dockerModelAbsoluteFolder} -p {your_local_port}:8001 {imageName} --model_path {dockerModelAbsolutePath}
+```
 
 ### ONNX HTTP service
 
