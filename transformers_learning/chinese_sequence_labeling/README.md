@@ -65,36 +65,36 @@ weighted avg     0.9332    0.9190    0.9258      7707
 ```
               precision    recall  f1-score   support
 
-        TIME     0.8480    0.8980    0.8722       441
+        TIME     0.8526    0.9048    0.8779       441
 
-   micro avg     0.8480    0.8980    0.8722       441
-   macro avg     0.8480    0.8980    0.8722       441
-weighted avg     0.8480    0.8980    0.8722       441
+   micro avg     0.8526    0.9048    0.8779       441
+   macro avg     0.8526    0.9048    0.8779       441
+weighted avg     0.8526    0.9048    0.8779       441
 ```
 
 - CLUENER细粒度实体识别数据集
 
-模型参数：MAX_SEQ_LEN=128, BATCH_SIZE=32, EPOCH=8
+模型参数：MAX_SEQ_LEN=128, BATCH_SIZE=20, EPOCH=20
 
 运行model_evaluate.py,模型评估结果如下：
 
 ```
               precision    recall  f1-score   support
 
-     address     0.5345    0.5962    0.5636       364
-        book     0.7500    0.7895    0.7692       152
-     company     0.7379    0.7923    0.7642       366
-        game     0.8058    0.8676    0.8356       287
-  government     0.7083    0.8361    0.7669       244
-       movie     0.8322    0.7933    0.8123       150
-        name     0.8376    0.8692    0.8531       451
-organization     0.6768    0.7791    0.7243       344
-    position     0.7025    0.7835    0.7408       425
-       scene     0.6650    0.6683    0.6667       199
+     address     0.5262    0.6071    0.5638       364
+        book     0.7669    0.8224    0.7937       152
+     company     0.7719    0.7951    0.7833       366
+        game     0.8123    0.8746    0.8423       287
+  government     0.7464    0.8443    0.7923       244
+       movie     0.8611    0.8267    0.8435       150
+        name     0.8553    0.8647    0.8600       451
+organization     0.7668    0.7645    0.7656       344
+    position     0.7517    0.7906    0.7706       425
+       scene     0.6713    0.7286    0.6988       199
 
-   micro avg     0.7183    0.7797    0.7477      2982
-   macro avg     0.7251    0.7775    0.7497      2982
-weighted avg     0.7207    0.7797    0.7485      2982
+   micro avg     0.7464    0.7887    0.7670      2982
+   macro avg     0.7530    0.7919    0.7714      2982
+weighted avg     0.7504    0.7887    0.7686      2982
 ```
 
 #### ernie-1.0模型
@@ -193,27 +193,27 @@ weighted avg     0.8571    0.8980    0.8771       441
 
 - CLUENER细粒度实体识别数据集
 
-模型参数：MAX_SEQ_LEN=128, BATCH_SIZE=32, EPOCH=8
+模型参数：MAX_SEQ_LEN=128, BATCH_SIZE=32, EPOCH=20
 
 运行model_evaluate.py,模型评估结果如下：
 
 ```
               precision    recall  f1-score   support
 
-     address     0.5733    0.6016    0.5871       364
-        book     0.7561    0.8158    0.7848       152
-     company     0.7456    0.8169    0.7797       366
-        game     0.7812    0.8711    0.8237       287
-  government     0.7605    0.8197    0.7890       244
-       movie     0.7881    0.7933    0.7907       150
-        name     0.8722    0.8780    0.8751       451
-organization     0.7143    0.7994    0.7545       344
-    position     0.7294    0.8118    0.7684       425
-       scene     0.6789    0.7437    0.7098       199
+     address     0.5822    0.6126    0.5971       364
+        book     0.7917    0.7500    0.7703       152
+     company     0.7940    0.8005    0.7973       366
+        game     0.7963    0.8990    0.8445       287
+  government     0.7744    0.8443    0.8078       244
+       movie     0.8252    0.7867    0.8055       150
+        name     0.8744    0.8803    0.8773       451
+organization     0.7414    0.8169    0.7773       344
+    position     0.7551    0.7835    0.7691       425
+       scene     0.6905    0.7286    0.7090       199
 
-   micro avg     0.7396    0.7964    0.7670      2982
-   macro avg     0.7400    0.7951    0.7663      2982
-weighted avg     0.7407    0.7964    0.7672      2982
+   micro avg     0.7607    0.7941    0.7770      2982
+   macro avg     0.7625    0.7902    0.7755      2982
+weighted avg     0.7619    0.7941    0.7772      2982
 ```
 
 ### 模型预测示例

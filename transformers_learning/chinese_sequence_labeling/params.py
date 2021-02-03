@@ -4,7 +4,7 @@ from transformers import BertForTokenClassification, BertTokenizer, BertConfig
 from transformers import RobertaForTokenClassification, RobertaTokenizer, RobertaConfig
 
 # 数据相关的配置
-dataset = "time"
+dataset = "example"
 
 train_file_path = "./data/%s.train" % dataset
 test_file_path = "./data/%s.test" % dataset
