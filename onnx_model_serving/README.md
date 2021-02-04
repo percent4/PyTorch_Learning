@@ -1,9 +1,29 @@
 the repo shows how to serve models using ONNX Runtime Server.
 
+### Author
+
+- jclian91
 
 ### Code Structure
 
 ```
+.
+├── assets
+├── captcha_recognition_model_predict_using_onnx_runtime_server.py
+├── captcha_recognition.onnx
+├── check_onnx_model.py
+├── cls_model_predict_using_onnx_runtime_server.py
+├── __init__.py
+├── iris_model.py
+├── iris.onnx
+├── onnx_runtime_server.ipynb
+├── onxx_model_predict.py
+├── README.md
+├── requirements.txt
+├── ssd_model_predict_using_onnx_runtime_server.py
+└── ssd.onnx
+
+1 directory, 14 files
 
 ```
 
@@ -27,7 +47,11 @@ see scripts: `onnx_model_predict.py`, `check_onnx_model.py`, `iris_model_predict
 
 - serving captcha recognition CNN Model
 
-see script: `captcha_recognize/torch_model_train.py`, `captcha_recognition_model_predict_using_onnx_runtime_server.py`
+see scripts: `captcha_recognize/torch_model_train.py`, `captcha_recognition_model_predict_using_onnx_runtime_server.py`
+
+- serving transformers BERT text classification Model
+
+see scripts: `transformers_learning/text_classification/model_export.py`, `cls_model_predict_using_onnx_runtime_server.py`
 
 
 ### References

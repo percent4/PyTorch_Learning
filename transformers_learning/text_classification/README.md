@@ -1,4 +1,4 @@
-本项目采用PyTorch和Transformers模块实现文本多分类任务。
+a本项目采用PyTorch和Transformers模块实现文本多分类任务。
 
 ### 维护者
 

@@ -7,12 +7,12 @@ the repo contains the following parts:
 1. pytorch tensor learning
 2. pytorch linear regression
 3. CV pretrained model usage
-4. binary classification
-5. multi classification
+4. MLP Model for binary classification
+5. MLP Model for multi classification
 6. CNN model for MNIST
-7. digital captcha recognition
-8. variable length math operation captcha recognition
-9. Chinese Named Entity Recognize
+7. CNN model for digital captcha recognition
+8. CNN model for variable length math operation captcha recognition
+9. Bi-LSTM CRF Model for Chinese Named Entity Recognize
 10. HuggingFace Transformers NLP tasks learning
 
 - language model
@@ -25,6 +25,7 @@ the repo contains the following parts:
 - official SSD model
 - IRIS dataset MLP multiclass classification Model
 - captcha recognition CNN Model
+- transformers BERT text classification Model
 
 
 ### references:
