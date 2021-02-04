@@ -9800,7 +9800,7 @@ atom
 adidas
 amazon
 ##ber
-##ner
+##bilstm_crf_ner
 visa
 ##77
 ##der

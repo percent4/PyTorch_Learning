@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-# @Time : 2021/2/4 13:48
-# @Author : Jclian91
-# @File : cls_model_predict_using_onnx_runtime_server.py
-# @Place : Yangpu, Shanghai
-# -*- coding: utf-8 -*-
 # @Time : 2021/2/3 17:32
 # @Author : Jclian91
 # @File : iris_model_predict_using_onnx_runtime_server.py
@@ -37,8 +32,6 @@ def convert_text_to_ids(tokenizer, text, max_len):
 
 def seq_padding(tokenizer, X):
     pad_id = tokenizer.convert_tokens_to_ids("[PAD]")
-    # if len(X) <= 1:
-    #     return torch.tensor(X)
     X = torch.Tensor([x + [pad_id] * (max_sequence_length - len(x)) if len(x) < max_sequence_length else x for x in X])
     return X
 

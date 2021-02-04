@@ -6,6 +6,8 @@
 import torch
 import numpy as np
 from torch.utils.data import DataLoader
+from seqeval.metrics.sequence_labeling import get_entities
+from collections import defaultdict
 
 
 from params import dataset, BASE_MODEL_DIR, MAX_SEQ_LENGTH, VALID_BATCH_SIZE, ModelTokenizer
@@ -16,6 +18,17 @@ model = BERTClass()
 model.to(dev)
 model.load_state_dict(torch.load("{}_{}_ner.pth".format(BASE_MODEL_DIR, dataset)))
 tokenizer = ModelTokenizer.from_pretrained('../{}'.format(BASE_MODEL_DIR))
+
+
+def get_model_tokens(text):
+    code = tokenizer.encode(text)
+    tokens = []
+    for token in code[1:-1]:
+        if tokenizer.convert_ids_to_tokens(token) == "[UNK]":
+            tokens.append(tokenizer.convert_ids_to_tokens(token))
+        else:
+            tokens.append(tokenizer.convert_ids_to_tokens(token).replace("##", ""))
+    return tokens
 
 
 def get_text_predict(text):
@@ -43,5 +56,19 @@ def get_text_predict(text):
 
 
 if __name__ == '__main__':
-    test_text = "11日凌晨，临海市大洋社区工作人员胡大勇和大家一起仍在忙着安置转移的受灾居民。"
-    print(get_text_predict(test_text))
+    test_text = "中新网兰州2月4日电 (记者 冯志军)甘肃省 生态环境厅4日发布消息称，今年甘肃将担好上游责任，深入推进黄河流域生态保护和污染防治，聚焦黄河流域突出生态环境问题和生态环境领域基础设施短板弱项，谋划实施一批生态保护、污染防治、能力建设等重大项目。".lower()
+    tokens = get_model_tokens(test_text)
+    tags = get_text_predict(test_text)
+    seq_entity_list = get_entities(tags)
+    print(seq_entity_list)
+    entity_dict = defaultdict(list)
+    for entity in seq_entity_list:
+        entity_type, entity_start, entity_end = entity
+        if entity_start < len(tokens):
+            word = "".join(tokens[entity_start:entity_end+1])
+            entity_dict[entity_type].append({"word": word,
+                                             "start_index": test_text.find(word)
+                                            })
+
+    from pprint import pprint
+    pprint(entity_dict)

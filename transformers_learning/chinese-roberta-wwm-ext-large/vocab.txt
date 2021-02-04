@@ -8955,7 +8955,7 @@ adidas
 amazon
 1958
 ##ber
-##ner
+##bilstm_crf_ner
 visa
 ##77
 ##der

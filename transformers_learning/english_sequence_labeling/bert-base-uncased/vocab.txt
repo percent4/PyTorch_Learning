@@ -3676,7 +3676,7 @@ multiple
 border
 ##ba
 host
-##ner
+##bilstm_crf_ner
 daily
 mrs
 walls

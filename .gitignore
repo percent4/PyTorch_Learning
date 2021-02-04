@@ -7,3 +7,4 @@ data/mnist
 variable_length_captcha_recognize/new_images
 transformers_learning/ernie-1.0/pytorch_model.bin
 transformers_learning/bert-base-chinese/pytorch_model.bin
+transformers_learning/chinese-roberta-wwm-ext-large/pytorch_model.bin
