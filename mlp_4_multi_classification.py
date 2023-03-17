@@ -5,6 +5,7 @@ from numpy import argmax
 from pandas import read_csv
 from sklearn.preprocessing import LabelEncoder, LabelBinarizer
 from sklearn.metrics import accuracy_score
+from torch.onnx import export
 from torch import Tensor
 from torch.optim import SGD, Adam
 from torch.utils.data import Dataset, DataLoader, random_split
@@ -162,6 +163,9 @@ print('Accuracy: %.3f' % acc)
 row = [5.1, 3.5, 1.4, 0.2]
 yhat = predict(row, model)
 print('Predicted: %s (class=%d)' % (yhat, argmax(yhat)))
+# export onnx model, use Netron to view the file
+onnx_path = "iris.onnx"
+export(model, Tensor([row]), onnx_path)
 """
 len(train_dl.dataset): 105, len(test_dl.dataset): 45
 Accuracy: 0.933

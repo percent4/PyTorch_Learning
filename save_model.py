@@ -156,8 +156,8 @@ if __name__ == '__main__':
     print(model)
     # train the model
     train_model(train_dl, model)
-    torch.save(model.state_dict(), 'binary_classification.pth')
-    print(model.state_dict())
+    torch.save(model, 'binary_classification.pth')
+    print(model)
     # evaluate the model
     acc = evaluate_model(test_dl, model)
     print('Accuracy: %.3f' % acc)

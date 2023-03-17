@@ -2,10 +2,10 @@
 import torch as T
 from torch.autograd import Variable
 
-# Variabel会放入一个计算图，然后进行前向传播，反向传播以及自动求导
+# Variable会放入一个计算图，然后进行前向传播，反向传播以及自动求导
 # 一个Variable里面包含着三个属性，data，grad和creator，
-# 其中creator表示得到这个Variabel的操作，比如乘法或者加法等等，
-# grad表示方向传播的梯度，data表示取出这个Variabel里面的数据
+# 其中creator表示得到这个Variable的操作，比如乘法或者加法等等，
+# grad表示方向传播的梯度，data表示取出这个Variable里面的数据
 
 # requires_grad 表示是否对其求梯度，默认是True
 x = Variable(T.Tensor([3]), requires_grad=True)
