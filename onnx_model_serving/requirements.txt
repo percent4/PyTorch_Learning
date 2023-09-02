@@ -1,6 +1,6 @@
 matplotlib==3.3.3
 numpy==1.19.5
-requests==2.25.1
+requests==2.31.0
 onnxruntime==1.6.0
 onnx==1.8.1
 torch==1.7.1+cu110
